@@ -60,6 +60,17 @@ h1{font-size:clamp(44px,9vw,104px);letter-spacing:-.01em;text-shadow:0 0 28px co
 .play i{width:0;height:0;border-left:11px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
 .soon{margin:0;font-size:14px;color:var(--accent);transition:color .6s}
 
+/* trailer */
+.trailer{padding-top:clamp(48px,7vw,88px)}
+.trailer h2{font-size:clamp(26px,4vw,42px)}
+.vid{position:relative;display:block;width:100%;max-width:960px;margin-top:22px;aspect-ratio:16/9;background:#05061a;border:2px solid rgba(255,255,255,.16);box-shadow:8px 8px 0 color-mix(in srgb,var(--accent) 70%,transparent);transition:box-shadow .6s}
+.vid>img,.vid>iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vid>img{object-fit:cover;height:100%}
+.vid button{position:absolute;inset:0;width:100%;border:0;padding:0;margin:0;background:linear-gradient(0deg,rgba(5,6,26,.5),rgba(5,6,26,0) 55%);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.vid button i{display:block;width:clamp(64px,10vw,96px);height:clamp(64px,10vw,96px);background:var(--accent);box-shadow:0 0 36px var(--accent),6px 6px 0 #14081a;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.vid button:hover i,.vid button:focus-visible i{transform:translate(-3px,-3px)}
+.vid button svg{width:44%;height:44%;shape-rendering:crispEdges;fill:#14081a;margin-left:6%}
+.trailer .note{margin:14px 0 0;font-size:14px;color:var(--dim)}
 /* place switcher */
 .places{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;padding:0 var(--gut) 20px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
 .places::-webkit-scrollbar{display:none}
@@ -146,6 +157,15 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
   <h2 id="h-cover"><span data-l="en">The cover is a tiny world that moves with the song</span><span data-l="uk">Обкладинка — маленький світ, що рухається разом із піснею</span></h2>
   <p><span data-l="en">Everything is made right on your phone: the music is synthesised in real time, and the picture is a pixel place that breathes along with it.</span><span data-l="uk">Усе робиться просто на вашому телефоні: музика синтезується в реальному часі, а картинка — піксельне місце, яке дихає разом із нею.</span></p>
   <p><span data-l="en">Things just happen. A trolleybus rolls by, crows take off, a window opens, the pharmacy bell rings. Events follow the song: the chorus, the bridge, the outro.</span><span data-l="uk">Усе відбувається саме: проїжджає тролейбус, злітають ворони, відчиняється вікно, дзвенить дзвінок аптеки. Події приурочені до пісні: приспів, брідж, кінцівка.</span></p>
+</section>
+
+<section class="wrap trailer" aria-labelledby="h-video">
+  <h2 id="h-video"><span data-l="en">Watch the trailer</span><span data-l="uk">Дивіться трейлер</span></h2>
+  <div class="vid" id="vid">
+    <img id="vidPoster" src="assets/img/trailer-en.webp" width="1280" height="720" alt="Trailer: The City Never Sleeps" loading="lazy">
+    <button type="button" id="vidPlay" aria-label="Play trailer"><i><svg viewBox="0 0 8 10" aria-hidden="true"><path d="M0 0h2v2h2v2h2v2H4v2H2v2H0z"/></svg></i></button>
+  </div>
+  <p class="note"><span data-l="en">The video loads from YouTube only after you press play. <a id="vidLink" href="https://youtu.be/UAriGgt6UsQ" rel="noopener">Watch on YouTube</a></span><span data-l="uk">Відео завантажується з YouTube лише після натискання «відтворити». <a id="vidLinkUk" href="https://youtu.be/q-D2GktTc8M" rel="noopener">Дивитися на YouTube</a></span></p>
 </section>
 
 <ul class="strip" aria-label="Screenshots">
@@ -241,6 +261,20 @@ var PLACES=[
   for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){set(this.getAttribute('data-set'))});
   var q=/[?&]lang=(en|uk)/.exec(location.search),s=null;try{s=localStorage.getItem('lang')}catch(e){}
   set(q?q[1]:(s==='uk'||s==='en'?s:'en'));
+})();
+
+/* ---------- trailer: click-to-load, one video per language ---------- */
+(function(){
+  var ID={en:'UAriGgt6UsQ',uk:'q-D2GktTc8M'},box=document.getElementById('vid'),poster=document.getElementById('vidPoster'),btn=document.getElementById('vidPlay'),h=document.documentElement;
+  function lang(){return h.lang==='uk'?'uk':'en'}
+  function sync(){if(!btn)return;poster.src='assets/img/trailer-'+lang()+'.webp';
+    btn.setAttribute('aria-label',lang()==='uk'?'Відтворити трейлер':'Play trailer');
+    var f=box.querySelector('iframe');if(f){box.removeChild(f);box.appendChild(poster);box.appendChild(btn)}}
+  btn.addEventListener('click',function(){
+    var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+ID[lang()]+'?autoplay=1&rel=0&hl='+lang();
+    f.title=lang()==='uk'?'Трейлер: Місто не спить':'Trailer: The City Never Sleeps';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;
+    box.removeChild(btn);box.removeChild(poster);box.appendChild(f)});
+  new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:['lang']});sync();
 })();
 
 /* ---------- switcher + album list ---------- */
