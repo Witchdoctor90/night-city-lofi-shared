@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy · The City Never Sleeps</title>
+<style>:root{color-scheme:dark}body{margin:0;background:#080919;color:#e9e7ff;font:16px/1.65 system-ui,sans-serif;padding:24px 16px 64px}
+main{max-width:720px;margin:0 auto}h1{font-size:28px;margin:.2em 0 .6em}code{background:#10112b;padding:1px 6px}a{color:#ffcf6b}li{margin:.35em 0}p{margin:.5em 0}
+.home{margin:0 0 14px;font-size:15px}.lang{display:flex;gap:8px;margin:0 0 18px}.lang button{font:inherit;color:#e9e7ff;background:#10112b;border:1px solid #2a2c5a;padding:6px 16px;cursor:pointer}
+.lang button[aria-pressed=true]{background:#ff5ca8;border-color:#ff5ca8;color:#080919;font-weight:700}
+[data-l]{display:none}html[lang=en] [data-l=en],html[lang=uk] [data-l=uk]{display:block}html[lang=en] span[data-l=en],html[lang=uk] span[data-l=uk]{display:inline}
+noscript [data-l]{display:block}</style></head>
+<body><main>
+<p class="home"><a href="../"><span data-l="en">The City Never Sleeps</span><span data-l="uk">Місто не спить</span></a></p>
+<div class="lang" role="group" aria-label="Language">
+<button type="button" data-set="en" aria-pressed="true">English</button>
+<button type="button" data-set="uk" aria-pressed="false">Українська</button>
+</div>
+
+<div data-l="en">
+<h1>Privacy Policy</h1>
+<p><b>App:</b> The City Never Sleeps (<code>com.shadovvdev.thecityneversleeps</code>)</p>
+<p><b>Developer:</b> Witchdoctor90</p>
+<p><b>Contact:</b> mrvnalexandr@gmail.com</p>
+<p><b>Date:</b> 14.10.2026</p>
+<p>The City Never Sleeps does not collect, store on any server, or share any personal data.</p>
+<ul>
+<li><b>Network.</b> The app has no internet access: the page, fonts and all the music (it is synthesised on the device) are inside the package.</li>
+<li><b>User data.</b> We do not collect names, email, location, device identifiers, contacts, files, photos or any other data.</li>
+<li><b>Analytics, ads, trackers.</b> None. No third-party SDKs are used.</li>
+<li><b>Permissions.</b> Notifications, to show playback buttons while music plays with the screen off. A foreground service (media playback), so the music does not stop when the screen turns off. No other permissions are requested.</li>
+<li><b>Children.</b> The app collects no data, including from children.</li>
+<li><b>Changes.</b> If this ever changes, the new version of the policy will be published at this address with a new date.</li>
+</ul>
+<p>Questions: mrvnalexandr@gmail.com</p>
+</div>
+
+<div data-l="uk">
+<h1>Політика конфіденційності</h1>
+<p><b>Застосунок:</b> Місто не спить (<code>com.shadovvdev.thecityneversleeps</code>)</p>
+<p><b>Автор:</b> Witchdoctor90</p>
+<p><b>Контакт:</b> mrvnalexandr@gmail.com</p>
+<p><b>Дата:</b> 14.10.2026</p>
+<p>Застосунок «Місто не спить» не збирає, не зберігає на сторонніх серверах і не передає жодних персональних даних.</p>
+<ul>
+<li><b>Мережа.</b> Застосунок не має доступу до інтернету: сторінка, шрифти й уся музика (вона синтезується на пристрої) вже всередині пакета.</li>
+<li><b>Дані користувача.</b> Ми не збираємо імен, пошти, місцезнаходження, ідентифікаторів пристрою, контактів, файлів, фото чи будь-яких інших даних.</li>
+<li><b>Аналітика, реклама, трекери.</b> Їх немає. Сторонні SDK не використовуються.</li>
+<li><b>Дозволи.</b> Сповіщення — щоб показати кнопки відтворення, коли музика грає з вимкненим екраном. Сервіс переднього плану (відтворення медіа) — щоб музика не зупинялася, коли екран вимкнено. Жодних інших дозволів не запитується.</li>
+<li><b>Діти.</b> Застосунок не збирає даних, зокрема від дітей.</li>
+<li><b>Зміни.</b> Якщо щось зміниться, нова версія політики з&#x27;явиться за цією адресою з новою датою.</li>
+</ul>
+<p>Питання: mrvnalexandr@gmail.com</p>
+</div>
+
+<script>
+(function(){
+  var h=document.documentElement,b=document.querySelectorAll('.lang button');
+  function set(l){h.lang=l;document.title=l==='uk'?'Політика конфіденційності · Місто не спить':'Privacy Policy · The City Never Sleeps';
+    for(var i=0;i<b.length;i++)b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){set(this.getAttribute('data-set'))});
+  var q=/[?&]lang=(en|uk)/.exec(location.search),s=null;try{s=localStorage.getItem('lang')}catch(e){}
+  set(q?q[1]:(s==='uk'||s==='en'?s:'en'));
+})();
+</script>
+<noscript><style>[data-l]{display:block!important}.lang{display:none}</style></noscript>
+</main></body></html>

@@ -1,64 +1,355 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy Policy · The City Never Sleeps</title>
-<style>:root{color-scheme:dark}body{margin:0;background:#080919;color:#e9e7ff;font:16px/1.65 system-ui,sans-serif;padding:24px 16px 64px}
-main{max-width:720px;margin:0 auto}h1{font-size:28px;margin:.2em 0 .6em}code{background:#10112b;padding:1px 6px}a{color:#ffcf6b}li{margin:.35em 0}p{margin:.5em 0}
-.lang{display:flex;gap:8px;margin:0 0 18px}.lang button{font:inherit;color:#e9e7ff;background:#10112b;border:1px solid #2a2c5a;padding:6px 16px;cursor:pointer}
-.lang button[aria-pressed=true]{background:#ff5ca8;border-color:#ff5ca8;color:#080919;font-weight:700}
-[data-l]{display:none}html[lang=en] [data-l=en],html[lang=uk] [data-l=uk]{display:block}html[lang=en] span[data-l=en],html[lang=uk] span[data-l=uk]{display:inline}
-noscript [data-l]{display:block}</style></head>
-<body><main>
-<div class="lang" role="group" aria-label="Language">
-<button type="button" data-set="en" aria-pressed="true">English</button>
-<button type="button" data-set="uk" aria-pressed="false">Українська</button>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The City Never Sleeps</title>
+<meta name="description" content="A lo-fi player where every album is a living pixel place: rain, leaves, eclipse. Nine places, 72 songs, no ads, no internet.">
+<meta name="theme-color" content="#080919">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The City Never Sleeps">
+<meta property="og:description" content="A lo-fi player where every album is a living pixel place.">
+<meta property="og:image" content="https://witchdoctor90.github.io/night-city-lofi-shared/assets/img/og.png">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<style>
+@font-face{font-family:"Pixelify Sans";font-weight:500;font-display:swap;src:url(assets/fonts/pixelify-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Pixelify Sans";font-weight:500;font-display:swap;src:url(assets/fonts/pixelify-sans-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Pixelify Sans";font-weight:700;font-display:swap;src:url(assets/fonts/pixelify-sans-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Pixelify Sans";font-weight:700;font-display:swap;src:url(assets/fonts/pixelify-sans-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-mono-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url(assets/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url(assets/fonts/ibm-plex-mono-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+
+:root{
+  --bg:#080919; --panel:#10112b; --line:#26285a; --ink:#e9e7ff; --dim:#a3a1d0;
+  --accent:#ff5ca8; --warm:#ffcf6b;
+  --pix:"Pixelify Sans",ui-monospace,monospace; --txt:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gut:clamp(16px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{background:var(--bg);color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 var(--txt);-webkit-font-smoothing:antialiased}
+html[lang="en"] [data-l="uk"],html[lang="uk"] [data-l="en"]{display:none!important}
+a{color:var(--warm);text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--pix);font-weight:700;margin:0;line-height:1.05}
+
+/* top bar */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px var(--gut)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:700 18px/1 var(--pix)}
+.brand img{width:28px;height:28px;image-rendering:pixelated}
+.lang{display:flex;gap:6px}
+.lang button{font:500 13px/1 var(--txt);color:var(--ink);background:rgba(8,9,25,.6);border:1px solid rgba(255,255,255,.22);padding:8px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#14081a;font-weight:500}
+
+/* hero: the live world is the cover */
+.hero{position:relative;min-height:max(100svh,600px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+#world{position:absolute;inset:0;width:100%;height:100%;z-index:-3;image-rendering:pixelated;background:var(--bg)}
+.shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(8,9,25,.86) 0,rgba(8,9,25,.55) 42%,rgba(8,9,25,0) 72%),linear-gradient(0deg,rgba(8,9,25,.9) 0,rgba(8,9,25,0) 26%)}
+.flash{position:absolute;inset:0;z-index:-1;background:var(--bg);opacity:0;pointer-events:none;transition:opacity .7s ease-out}
+.flash.on{opacity:.9;transition:none}
+.hero-in{padding:0 var(--gut);margin-bottom:clamp(88px,16vh,150px);max-width:900px}
+h1{font-size:clamp(44px,9vw,104px);letter-spacing:-.01em;text-shadow:0 0 28px color-mix(in srgb,var(--accent) 50%,transparent);transition:text-shadow .6s}
+.lede{font-size:clamp(17px,2.2vw,21px);max-width:34ch;margin:22px 0 6px;color:var(--ink)}
+.facts{margin:0 0 28px;color:var(--dim);font-size:15px}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.play{display:inline-flex;align-items:center;gap:12px;font:500 16px/1 var(--txt);padding:16px 22px;color:var(--dim);background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.34);cursor:not-allowed}
+.play i{width:0;height:0;border-left:11px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.soon{margin:0;font-size:14px;color:var(--accent);transition:color .6s}
+
+/* place switcher */
+.places{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;padding:0 var(--gut) 20px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+.places::-webkit-scrollbar{display:none}
+.places button{flex:none;scroll-snap-align:start;display:flex;align-items:center;gap:9px;font:500 14px/1 var(--pix);color:var(--dim);background:rgba(8,9,25,.72);border:1px solid rgba(255,255,255,.14);padding:11px 14px;cursor:pointer;white-space:nowrap}
+.places button i{width:10px;height:10px;background:var(--c);box-shadow:0 0 10px var(--c)}
+.places button:hover{color:var(--ink);border-color:var(--c)}
+.places button[aria-pressed="true"]{color:var(--ink);border-color:var(--c);background:rgba(8,9,25,.9)}
+
+/* sections */
+.wrap{padding:0 var(--gut)}
+.intro{padding-top:clamp(64px,10vw,120px)}
+.intro h2{font-size:clamp(30px,5vw,54px);max-width:18ch}
+.intro p{max-width:62ch;margin:22px 0 0;color:var(--dim)}
+.intro p+p{margin-top:14px}
+
+.strip{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:0 var(--gut) 8px;display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;justify-content:safe center;scrollbar-color:var(--line) transparent}
+.strip li{flex:none;width:clamp(180px,calc((100vw - 2*var(--gut) - 5*24px)/6),230px);scroll-snap-align:center}
+.strip li:nth-child(even){margin-top:36px}
+.strip img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:22px;border:1px solid var(--line);background:var(--panel)}
+.strip figcaption{margin:12px 2px 0;font-size:13px;line-height:1.5;color:var(--dim)}
+.strip figure{margin:0}
+
+.feat{display:grid;gap:clamp(32px,5vw,64px);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding-top:clamp(64px,9vw,112px)}
+.feat h2{font-size:clamp(22px,2.6vw,30px);margin-bottom:14px}
+.feat p,.feat li{color:var(--dim);margin:0}
+.feat ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.feat li{padding-left:22px;position:relative}
+.feat li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--accent);transition:background .6s}
+
+.wide{margin:clamp(56px,8vw,104px) 0 0;padding:0 var(--gut)}
+.wide figure{margin:0}
+.wide figure{max-width:1100px}.wide img{width:100%;aspect-ratio:8/5;object-fit:cover;border:1px solid var(--line);border-radius:10px}
+.wide figcaption{margin-top:12px;font-size:13px;color:var(--dim)}
+
+.albums{padding-top:clamp(64px,9vw,112px)}
+.albums h2{font-size:clamp(28px,4vw,44px);margin-bottom:28px}
+.albums ul{list-style:none;margin:0;padding:0;display:grid;gap:22px clamp(24px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr))}
+.albums li{display:grid;grid-template-columns:14px 1fr;gap:4px 14px;align-items:start}
+.albums li i{width:14px;height:14px;margin-top:.5em;background:var(--c);box-shadow:0 0 12px var(--c)}
+.albums h3{font-size:21px;font-weight:500}
+.albums p{grid-column:2;margin:0;color:var(--dim);font-size:15px;line-height:1.6}
+
+footer{margin-top:clamp(72px,10vw,128px);border-top:1px solid var(--line);padding:28px var(--gut) 44px;color:var(--dim);font-size:14px}
+footer .wrap{padding:0;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+
+@media(max-width:640px){
+  .shade{background:linear-gradient(0deg,rgba(8,9,25,.92) 0,rgba(8,9,25,.7) 45%,rgba(8,9,25,.25) 100%)}
+  .hero-in{margin-bottom:96px}
+  .strip li:nth-child(even){margin-top:0}
+}
+@media(prefers-reduced-motion:reduce){.flash{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="./"><img src="assets/img/icon-180.png" alt=""><span data-l="en">The City Never Sleeps</span><span data-l="uk">Місто не спить</span></a>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-set="en" aria-pressed="true">EN</button>
+    <button type="button" data-set="uk" aria-pressed="false">UA</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="t">
+  <canvas id="world" aria-hidden="true"></canvas>
+  <div class="shade"></div><div class="flash" id="flash"></div>
+
+  <div class="hero-in">
+    <h1 id="t"><span data-l="en">The City<br>Never Sleeps</span><span data-l="uk">Місто<br>не спить</span></h1>
+    <p class="lede"><span data-l="en">A lo-fi player where every album is a living pixel place.</span><span data-l="uk">Lo-fi плеєр, де кожен альбом — живе піксельне місце.</span></p>
+    <p class="facts"><span data-l="en">Nine places, 72 songs. No ads, no internet.</span><span data-l="uk">Дев'ять місць, 72 пісні. Без реклами й без інтернету.</span></p>
+    <div class="cta">
+      <button class="play" type="button" disabled aria-disabled="true" aria-describedby="soon"><i></i><span data-l="en">Get it on Google Play</span><span data-l="uk">Завантажити з Google Play</span></button>
+      <p class="soon" id="soon"><span data-l="en">Coming soon: not published yet.</span><span data-l="uk">Скоро буде опубліковано.</span></p>
+    </div>
+  </div>
+
+  <nav class="places" id="places" aria-label="Places"></nav>
+</section>
+
+<section class="wrap intro" aria-labelledby="h-cover">
+  <h2 id="h-cover"><span data-l="en">The cover is a tiny world that moves with the song</span><span data-l="uk">Обкладинка — маленький світ, що рухається разом із піснею</span></h2>
+  <p><span data-l="en">Everything is made right on your phone: the music is synthesised in real time, and the picture is a pixel place that breathes along with it.</span><span data-l="uk">Усе робиться просто на вашому телефоні: музика синтезується в реальному часі, а картинка — піксельне місце, яке дихає разом із нею.</span></p>
+  <p><span data-l="en">Things just happen. A trolleybus rolls by, crows take off, a window opens, the pharmacy bell rings. Events follow the song: the chorus, the bridge, the outro.</span><span data-l="uk">Усе відбувається саме: проїжджає тролейбус, злітають ворони, відчиняється вікно, дзвенить дзвінок аптеки. Події приурочені до пісні: приспів, брідж, кінцівка.</span></p>
+</section>
+
+<ul class="strip" aria-label="Screenshots">
+  <li><figure><img src="assets/img/phone-1.webp" width="540" height="960" alt="The player with a rainy night city as the cover" loading="lazy"><figcaption><span data-l="en">The player: rain, a cat on the ledge, a song in progress.</span><span data-l="uk">Плеєр: дощ, кіт на парапеті, пісня триває.</span></figcaption></figure></li>
+  <li><figure><img src="assets/img/phone-3.webp" width="540" height="960" alt="The city map with nine places" loading="lazy"><figcaption><span data-l="en">The city map: one tap to another place.</span><span data-l="uk">Карта міста: одне торкання до іншого місця.</span></figcaption></figure></li>
+  <li><figure><img src="assets/img/phone-2.webp" width="540" height="960" alt="Leaf-fall Alley album" loading="lazy"><figcaption><span data-l="en">Leaf-fall Alley.</span><span data-l="uk">Алея листопаду.</span></figcaption></figure></li>
+  <li><figure><img src="assets/img/phone-4.webp" width="540" height="960" alt="24h Pharmacy in fullscreen" loading="lazy"><figcaption><span data-l="en">Fullscreen: the world stretches to fill the screen.</span><span data-l="uk">Повний екран: світ розтягується на весь екран.</span></figcaption></figure></li>
+  <li><figure><img src="assets/img/phone-5.webp" width="540" height="960" alt="Power Cut album" loading="lazy"><figcaption><span data-l="en">Power Cut: a candle on the sill.</span><span data-l="uk">Світла нема: свічка на підвіконні.</span></figcaption></figure></li>
+  <li><figure><img src="assets/img/phone-6.webp" width="540" height="960" alt="Hot July courtyard seen from above" loading="lazy"><figcaption><span data-l="en">Hot July: a courtyard from above.</span><span data-l="uk">Спекотний липень: двір згори.</span></figcaption></figure></li>
+</ul>
+
+<div class="wrap feat">
+  <section aria-labelledby="h-player">
+    <h2 id="h-player"><span data-l="en">A proper player</span><span data-l="uk">Звичайний плеєр</span></h2>
+    <ul>
+      <li><span data-l="en">Play, pause, next and previous</span><span data-l="uk">Грати, пауза, наступна й попередня пісня</span></li>
+      <li><span data-l="en">A seek bar that jumps by bars of the song</span><span data-l="uk">Перемотування по тактах пісні</span></li>
+      <li><span data-l="en">The song list of every album</span><span data-l="uk">Список пісень кожного альбому</span></li>
+      <li><span data-l="en">A city map to switch places</span><span data-l="uk">Карта міста для зміни місця</span></li>
+      <li><span data-l="en">Fullscreen in portrait and landscape</span><span data-l="uk">Повний екран у портретному й горизонтальному режимі</span></li>
+    </ul>
+  </section>
+  <section aria-labelledby="h-bg">
+    <h2 id="h-bg"><span data-l="en">Plays with the screen off</span><span data-l="uk">Грає з вимкненим екраном</span></h2>
+    <p><span data-l="en">Keep the music going while the phone is in your pocket. Playback buttons sit in the notification and on the lock screen.</span><span data-l="uk">Музика не зупиняється, поки телефон у кишені. Кнопки керування є в сповіщенні й на екрані блокування.</span></p>
+  </section>
+  <section aria-labelledby="h-off">
+    <h2 id="h-off"><span data-l="en">No ads, no internet</span><span data-l="uk">Без реклами й без інтернету</span></h2>
+    <p><span data-l="en">Nothing to sign in to and nothing to download after install: the music is synthesised on your phone, so everything is already inside. The app collects no data. <a href="privacy/">Read the privacy policy</a>.</span><span data-l="uk">Ніякого входу й ніяких докачувань після встановлення: музика синтезується на телефоні, тож усе вже всередині. Застосунок не збирає даних. <a href="privacy/">Читати політику конфіденційності</a>.</span></p>
+  </section>
 </div>
 
-<div data-l="en">
-<h1>Privacy Policy</h1>
-<p><b>App:</b> The City Never Sleeps (<code>com.shadovvdev.thecityneversleeps</code>)</p>
-<p><b>Developer:</b> Witchdoctor90</p>
-<p><b>Contact:</b> mrvnalexandr@gmail.com</p>
-<p><b>Date:</b> 14.10.2026</p>
-<p>The City Never Sleeps does not collect, store on any server, or share any personal data.</p>
-<ul>
-<li><b>Network.</b> The app has no internet access: the page, fonts and all the music (it is synthesised on the device) are inside the package.</li>
-<li><b>User data.</b> We do not collect names, email, location, device identifiers, contacts, files, photos or any other data.</li>
-<li><b>Analytics, ads, trackers.</b> None. No third-party SDKs are used.</li>
-<li><b>Permissions.</b> Notifications, to show playback buttons while music plays with the screen off. A foreground service (media playback), so the music does not stop when the screen turns off. No other permissions are requested.</li>
-<li><b>Children.</b> The app collects no data, including from children.</li>
-<li><b>Changes.</b> If this ever changes, the new version of the policy will be published at this address with a new date.</li>
-</ul>
-<p>Questions: mrvnalexandr@gmail.com</p>
-</div>
+<div class="wide"><figure>
+  <img src="assets/img/tablet-eclipse.webp" width="1280" height="800" alt="Eclipse album in fullscreen on a tablet" loading="lazy">
+  <figcaption><span data-l="en">Eclipse on a tablet: the same world, a wider view.</span><span data-l="uk">Затемнення на планшеті: той самий світ, ширший кадр.</span></figcaption>
+</figure></div>
 
-<div data-l="uk">
-<h1>Політика конфіденційності</h1>
-<p><b>Застосунок:</b> Місто не спить (<code>com.shadovvdev.thecityneversleeps</code>)</p>
-<p><b>Автор:</b> Witchdoctor90</p>
-<p><b>Контакт:</b> mrvnalexandr@gmail.com</p>
-<p><b>Дата:</b> 14.10.2026</p>
-<p>Застосунок «Місто не спить» не збирає, не зберігає на сторонніх серверах і не передає жодних персональних даних.</p>
-<ul>
-<li><b>Мережа.</b> Застосунок не має доступу до інтернету: сторінка, шрифти й уся музика (вона синтезується на пристрої) вже всередині пакета.</li>
-<li><b>Дані користувача.</b> Ми не збираємо імен, пошти, місцезнаходження, ідентифікаторів пристрою, контактів, файлів, фото чи будь-яких інших даних.</li>
-<li><b>Аналітика, реклама, трекери.</b> Їх немає. Сторонні SDK не використовуються.</li>
-<li><b>Дозволи.</b> Сповіщення — щоб показати кнопки відтворення, коли музика грає з вимкненим екраном. Сервіс переднього плану (відтворення медіа) — щоб музика не зупинялася, коли екран вимкнено. Жодних інших дозволів не запитується.</li>
-<li><b>Діти.</b> Застосунок не збирає даних, зокрема від дітей.</li>
-<li><b>Зміни.</b> Якщо щось зміниться, нова версія політики з&#x27;явиться за цією адресою з новою датою.</li>
-</ul>
-<p>Питання: mrvnalexandr@gmail.com</p>
-</div>
+<section class="wrap albums" aria-labelledby="h-albums">
+  <h2 id="h-albums"><span data-l="en">Nine places, eight songs each</span><span data-l="uk">Дев'ять місць, у кожному вісім пісень</span></h2>
+  <ul id="albums"></ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Witchdoctor90</span>
+    <nav aria-label="Footer">
+      <a href="privacy/"><span data-l="en">Privacy policy</span><span data-l="uk">Політика конфіденційності</span></a>
+      <a href="mailto:mrvnalexandr@gmail.com">mrvnalexandr@gmail.com</a>
+      <a href="licenses/OFL-PixelifySans.txt"><span data-l="en">Font licenses</span><span data-l="uk">Ліцензії шрифтів</span></a>
+    </nav>
+  </div>
+</footer>
 
 <script>
+/* ---------- places: one list drives the switcher, the album list and the hero world ---------- */
+var PLACES=[
+ {c:'#ff5ca8',en:'The City Never Sleeps',uk:'Місто не спить',
+  den:'A rainy night city, a cat on the ledge, windows going dark and bright.',duk:'Нічне місто під дощем, кіт на парапеті, вікна, що гаснуть і спалахують.',
+  sky:['#080919','#2b1747'],far:'#16183f',near:'#0a0b25',win:['#ffcf6b','#ff9a5c','#7fd8ff','#c58cff'],lit:.5,wx:'rain',refl:1,cat:1},
+ {c:'#35e8ff',en:'The Last Trolleybus',uk:'Останній тролейбус',
+  den:'A street corner, overhead wires, a "7 — 47 min" board.',duk:'Вулиця на розі, дроти, табло «7 — 47 хв».',
+  sky:['#06121f','#10405e'],far:'#0f3050',near:'#071524',win:['#ffd86b','#7ff3ff'],lit:.4,wx:'rain',refl:1,cat:1,wires:1},
+ {c:'#ffa94d',en:'Leaf-fall Alley',uk:'Алея листопаду',
+  den:'A park, street lamps and leaves swirling in the wind.',duk:'Парк, ліхтарі й листя, що кружляє на вітрі.',
+  sky:['#2a0f2e','#b0562f'],far:'#5a2a3a',near:'#26111f',win:['#ffcf6b','#ff9a5c'],lit:.3,wx:'leaves',cat:1},
+ {c:'#7bff9a',en:'24h Pharmacy',uk:'Цілодобова аптека',
+  den:'A green cross, a shop window, a nurse cat and a vending machine.',duk:'Зелений хрест, вітрина, кіт-медсестра й автомат із напоями.',
+  sky:['#03120e','#0e4030'],far:'#0b2e24',near:'#05150f',win:['#7bff9a','#c9ffd8','#ffffff'],lit:.35,wx:'stars',refl:1,cat:1,cross:1},
+ {c:'#ffcf6b',en:'Power Cut',uk:'Світла нема',
+  den:'Courtyard windows, a candle on the sill, neighbours with torches and a generator.',duk:'Вікна двору, свічка на підвіконні, сусіди з ліхтариками й генератор.',
+  sky:['#04050c','#10122c'],far:'#0d0f26',near:'#06070f',win:['#ffcf6b','#ff9a5c'],lit:.06,wx:'stars',cat:1},
+ {c:'#ff7a3d',en:'Hot July',uk:'Спекотний липень',
+  den:'A courtyard from above: laundry on a line, a watermelon, air conditioners and a sprinkler.',duk:'Двір згори: білизна на мотузці, кавун, кондиціонери й поливалка.',
+  sky:['#ff9a68','#ffd9a0'],far:'#d8785a',near:'#9c4a3c',win:['#6b3535'],lit:.2,wx:'dust',sun:1,cat:1},
+ {c:'#ff5a6e',en:'Garlands',uk:'Гірлянди',
+  den:'A snowy archway with a fir tree, garlands and Santa.',duk:'Засніжена арка з ялинкою, гірляндами й Сантою.',
+  sky:['#0a1230','#2a3a78'],far:'#1b2756',near:'#0d1434',win:['#ffcf6b','#ff5a6e','#7bff9a','#7fd8ff'],lit:.55,wx:'snow',refl:1,cat:1},
+ {c:'#b48cff',en:'Out of Town',uk:'За містом',
+  den:'A starry field, aurora, a camp, a fox and a telescope.',duk:'Зоряне поле, північне сяйво, табір, лис і телескоп.',
+  sky:['#05021a','#3c1c7c'],far:'#26125a',near:'#0e0726',win:[],lit:0,wx:'stars',hills:1,aurora:1},
+ {c:'#e6e6ff',en:'Eclipse',uk:'Затемнення',
+  den:'A rooftop where people watch the sky, with a dog beside them.',duk:'Дах, з якого дивляться на небо, і пес поруч.',
+  sky:['#010208','#12132a'],far:'#14152e',near:'#07071a',win:['#e6e6ff'],lit:.08,wx:'stars',eclipse:1,cat:1}
+];
+
+/* ---------- language ---------- */
 (function(){
   var h=document.documentElement,b=document.querySelectorAll('.lang button');
-  function set(l){h.lang=l;document.title=l==='uk'?'Політика конфіденційності · Місто не спить':'Privacy Policy · The City Never Sleeps';
+  function set(l){h.lang=l;document.title=l==='uk'?'Місто не спить':'The City Never Sleeps';
     for(var i=0;i<b.length;i++)b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');
     try{localStorage.setItem('lang',l)}catch(e){}}
   for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){set(this.getAttribute('data-set'))});
   var q=/[?&]lang=(en|uk)/.exec(location.search),s=null;try{s=localStorage.getItem('lang')}catch(e){}
   set(q?q[1]:(s==='uk'||s==='en'?s:'en'));
 })();
+
+/* ---------- switcher + album list ---------- */
+var chips=document.getElementById('places'),list=document.getElementById('albums');
+PLACES.forEach(function(p,i){
+  var b=document.createElement('button');b.type='button';b.style.setProperty('--c',p.c);b.setAttribute('aria-pressed','false');
+  b.innerHTML='<i></i><span data-l="en"></span><span data-l="uk"></span>';
+  b.querySelector('[data-l=en]').textContent=p.en;b.querySelector('[data-l=uk]').textContent=p.uk;
+  b.addEventListener('click',function(){World.go(i,true)});chips.appendChild(b);
+  var li=document.createElement('li');li.style.setProperty('--c',p.c);
+  li.innerHTML='<i></i><h3><span data-l="en"></span><span data-l="uk"></span></h3><p><span data-l="en"></span><span data-l="uk"></span></p>';
+  var h3=li.querySelectorAll('h3 span'),pp=li.querySelectorAll('p span');
+  h3[0].textContent=p.en;h3[1].textContent=p.uk;pp[0].textContent=p.den;pp[1].textContent=p.duk;
+  list.appendChild(li);
+});
+
+/* ---------- the living cover: a tiny pixel world drawn at low resolution ---------- */
+var World=(function(){
+  var cv=document.getElementById('world'),cx=cv.getContext('2d'),hero=cv.parentNode,flash=document.getElementById('flash');
+  var bc=document.createElement('canvas'),bx=bc.getContext('2d');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var S=4,W=0,H=0,gy=0,idx=0,P=PLACES[0],wins=[],stars=[],parts=[],top=[],cat=null,stopped=false,inView=true,last=0,timer=0;
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  function hx(h){h=h.replace('#','');return[parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]}
+  function mix(a,b,t){a=hx(a);b=hx(b);return'rgb('+Math.round(a[0]+(b[0]-a[0])*t)+','+Math.round(a[1]+(b[1]-a[1])*t)+','+Math.round(a[2]+(b[2]-a[2])*t)+')'}
+  function rect(x,y,w,h,c){bx.fillStyle=c;bx.fillRect(x,y,w,h)}
+
+  function layer(col,minW,maxW,minH,maxH,R,dim,ownWins){
+    var x=-6;
+    while(x<W){
+      var w=Math.round(minW+R()*(maxW-minW)),h=Math.round(H*(minH+R()*(maxH-minH))),y=gy-h;
+      rect(x,y,w,h,col);
+      if(R()<.35)rect(x+Math.round(w/2),y-Math.round(3+R()*5),1,Math.round(3+R()*5),col);       /* antenna */
+      for(var c=Math.max(0,x);c<Math.min(W,x+w);c++)if(top[c]===undefined||y<top[c])top[c]=y;
+      if(ownWins&&P.win.length)for(var wy=y+3;wy<gy-4;wy+=4)for(var wx=x+2;wx<x+w-3;wx+=4)
+        if(R()<P.lit)wins.push({x:wx,y:wy,c:P.win[Math.floor(R()*P.win.length)],a:dim,b:R()<.1,f:.5+R()*1.6,ph:R()*6});
+      if(ownWins&&!cat&&w>=12&&x>W*.15&&x<W*.55&&P.cat)cat={x:x+Math.round(w*.55),y:y};
+      x+=w+Math.round(R()*3);
+    }
+  }
+  function build(){
+    var R=rng(900+idx*131);P=PLACES[idx];wins=[];stars=[];parts=[];top=[];cat=null;
+    gy=Math.floor(H*.8);bc.width=W;bc.height=H;bx.imageSmoothingEnabled=false;
+    for(var y=0;y<gy;y+=3)rect(0,y,W,3,mix(P.sky[0],P.sky[1],Math.pow(y/gy,1.5)));
+    if(P.sun){var sx=Math.round(W*.74),sy=Math.round(gy*.42),r=Math.round(H*.11);
+      for(var k=3;k>=1;k--){bx.fillStyle='rgba(255,241,194,'+(.1*k)+')';circ(sx,sy,r+k*5)}bx.fillStyle='#fff1c2';circ(sx,sy,r)}
+    if(P.eclipse){var ex=Math.round(W*.7),ey=Math.round(gy*.34),er=Math.round(H*.1);
+      for(var k=5;k>=1;k--){bx.fillStyle='rgba(230,230,255,'+(.07*k)+')';circ(ex,ey,er+k*3)}bx.fillStyle='#010208';circ(ex,ey,er)}
+    if(P.hills){
+      for(var x=0;x<W;x++){var y1=Math.round(gy-H*.2-Math.sin(x*.03+1)*H*.05-Math.sin(x*.011)*H*.07);rect(x,y1,1,gy-y1,P.far);top[x]=y1}
+      for(var x=0;x<W;x++){var y2=Math.round(gy-H*.09-Math.sin(x*.045+3)*H*.035-Math.sin(x*.017+2)*H*.04);rect(x,y2,1,gy-y2,P.near);if(y2<top[x])top[x]=y2}
+    }else{
+      layer(P.far,14,28,.22,.52,R,.45,true);
+      var savedCat=cat;cat=null;layer(P.near,10,22,.14,.4,R,1,true);if(!cat)cat=savedCat;
+    }
+    rect(0,gy,W,H-gy,mix(P.near,'#000000',.4));rect(0,gy,W,1,mix(P.far,'#ffffff',.18));
+    if(P.wires){for(var x=0;x<W;x++){var wy=Math.round(gy*.9+Math.sin(x*.05)*2);rect(x,wy,1,1,'rgba(255,255,255,.22)')}}
+    if(P.cross){var cx0=Math.round(W*.62),cy0=Math.round(top[cx0]||gy*.6)-9;rect(cx0,cy0+3,9,3,'#7bff9a');rect(cx0+3,cy0,3,9,'#7bff9a')}
+    if(cat){var c=mix(P.near,'#000000',.55);rect(cat.x,cat.y-5,6,5,c);rect(cat.x,cat.y-7,1,2,c);rect(cat.x+4,cat.y-7,1,2,c);rect(cat.x+6,cat.y-3,1,3,c);rect(cat.x+7,cat.y-5,1,3,c)}
+    var n=P.wx==='stars'||P.eclipse||P.aurora?90:34;
+    for(var i=0;i<n;i++){var sx2=Math.floor(R()*W),sy2=Math.floor(R()*gy*.7);if(P.sun)break;if(sy2<(top[sx2]||gy)-3)stars.push({x:sx2,y:sy2,ph:R()*6,f:.6+R()*2})}
+    var cnt={rain:130,snow:90,leaves:36,dust:40}[P.wx]||0;
+    for(var j=0;j<cnt;j++)parts.push({x:R()*W,y:R()*H,v:.6+R()*.8,s:R()*6,k:Math.floor(R()*3)});
+  }
+  function circ(x,y,r){for(var j=-r;j<=r;j++){var w=Math.round(Math.sqrt(r*r-j*j));bx.fillRect(x-w,y+j,w*2+1,1)}}
+
+  function draw(t){
+    var s=t/1000,dt=Math.min(.05,(t-last)/1000||.033);last=t;
+    cx.globalAlpha=1;cx.drawImage(bc,0,0);
+    for(var i=0;i<stars.length;i++){var st=stars[i];cx.globalAlpha=.35+.6*(.5+.5*Math.sin(s*st.f+st.ph));cx.fillStyle='#fff';cx.fillRect(st.x,st.y,1,1)}
+    if(P.aurora){for(var x=0;x<W;x+=2){var y0=gy*.18+Math.sin(x*.045+s*.5)*gy*.07+Math.sin(x*.013-s*.3)*gy*.05,hh=gy*.2;
+      cx.globalAlpha=.13+.1*Math.sin(x*.07+s*.8);cx.fillStyle='#5dffb0';cx.fillRect(x,y0,2,hh);cx.globalAlpha*=.6;cx.fillStyle='#b48cff';cx.fillRect(x,y0+hh*.5,2,hh*.8)}}
+    for(var k=0;k<wins.length;k++){var w=wins[k];if(w.b&&Math.sin(s*w.f+w.ph)<.15)continue;
+      cx.globalAlpha=w.a;cx.fillStyle=w.c;cx.fillRect(w.x,w.y,2,2);
+      if(P.refl&&w.a===1){var ry=gy+Math.round((gy-w.y)*.4);if(ry<H){cx.globalAlpha=.2;cx.fillRect(w.x+Math.round(Math.sin(s*2+w.ph)*1.2),ry,2,1)}}}
+    if(cat&&(s%4.2)>.18){cx.globalAlpha=1;cx.fillStyle=P.c;cx.fillRect(cat.x+4,cat.y-4,1,1)}
+    cx.globalAlpha=1;
+    for(var m=0;m<parts.length;m++){var p=parts[m];
+      if(P.wx==='rain'){p.y+=p.v*95*dt;p.x-=p.v*14*dt;cx.fillStyle='rgba(176,196,255,.5)';cx.fillRect(Math.round(p.x),Math.round(p.y),1,3)}
+      else if(P.wx==='snow'){p.y+=p.v*14*dt;p.x+=Math.sin(s+p.s)*8*dt;cx.fillStyle='rgba(255,255,255,.85)';cx.fillRect(Math.round(p.x),Math.round(p.y),p.k?2:1,p.k?2:1)}
+      else if(P.wx==='leaves'){p.y+=p.v*16*dt;p.x+=(10+Math.sin(s*1.3+p.s)*14)*dt;cx.fillStyle=['#ff9a3c','#e0592c','#ffd05a'][p.k];cx.fillRect(Math.round(p.x),Math.round(p.y),2,1)}
+      else if(P.wx==='dust'){p.y-=p.v*3*dt;p.x+=Math.sin(s*.7+p.s)*4*dt;cx.fillStyle='rgba(255,236,190,.55)';cx.fillRect(Math.round(p.x),Math.round(p.y),1,1)}
+      if(p.y>H){p.y=-4;p.x=Math.random()*W}if(p.y<-5){p.y=H;p.x=Math.random()*W}if(p.x>W+2)p.x=-2;if(p.x<-2)p.x=W+1}
+    cx.globalAlpha=1;
+  }
+  function loop(t){timer=0;if(reduce||!inView||document.hidden)return;if(t-last>=30)draw(t);timer=requestAnimationFrame(loop)}
+  function kick(){if(!timer&&!reduce&&inView&&!document.hidden)timer=requestAnimationFrame(loop)}
+  function size(){
+    var r=hero.getBoundingClientRect();S=Math.max(3,Math.round(r.height/180));
+    W=Math.ceil(r.width/S);H=Math.ceil(r.height/S);cv.width=W;cv.height=H;build();draw(performance.now());
+  }
+  function paint(){
+    var p=PLACES[idx],bs=chips.children;document.documentElement.style.setProperty('--accent',p.c);
+    for(var i=0;i<bs.length;i++)bs[i].setAttribute('aria-pressed',i===idx?'true':'false');
+  }
+  function go(i,byUser){
+    if(byUser){stopped=true;clearInterval(auto)}
+    idx=i;flash.classList.add('on');paint();build();draw(performance.now());
+    requestAnimationFrame(function(){requestAnimationFrame(function(){flash.classList.remove('on')})});kick();
+  }
+  var auto=0;
+  function start(){size();paint();kick();
+    if(!reduce)auto=setInterval(function(){if(!stopped&&inView&&!document.hidden)go((idx+1)%PLACES.length,false)},9000)}
+  var rz=0;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(size,150)});
+  document.addEventListener('visibilitychange',kick);
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){inView=e[0].isIntersecting;kick()}).observe(hero);
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){});
+  start();
+  return{go:go};
+})();
 </script>
-<noscript><style>[data-l]{display:block!important}.lang{display:none}</style></noscript>
-</main></body></html>
+</body></html>
