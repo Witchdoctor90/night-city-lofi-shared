@@ -56,9 +56,15 @@ h1{font-size:clamp(44px,9vw,104px);letter-spacing:-.01em;text-shadow:0 0 28px co
 .lede{font-size:clamp(17px,2.2vw,21px);max-width:34ch;margin:22px 0 6px;color:var(--ink)}
 .facts{margin:0 0 28px;color:var(--dim);font-size:15px}
 .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
-.play{display:inline-flex;align-items:center;gap:12px;font:500 16px/1 var(--txt);padding:16px 22px;color:var(--dim);background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.34);cursor:not-allowed}
+.play{display:inline-flex;align-items:center;gap:12px;font:500 16px/1 var(--txt);padding:16px 22px;color:var(--ink);text-decoration:none;background:color-mix(in srgb,var(--accent) 24%,transparent);border:2px solid var(--accent);box-shadow:4px 4px 0 color-mix(in srgb,var(--accent) 60%,transparent);cursor:pointer;transition:background .15s,transform .1s,box-shadow .1s,border-color .6s}
+.play:hover{background:color-mix(in srgb,var(--accent) 38%,transparent)}
+.play:active{transform:translate(2px,2px);box-shadow:2px 2px 0 color-mix(in srgb,var(--accent) 60%,transparent)}
 .play i{width:0;height:0;border-left:11px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
 .soon{margin:0;font-size:14px;color:var(--accent);transition:color .6s}
+.soon a{color:var(--ink)}
+.access{padding-top:clamp(48px,7vw,88px)}
+.access h2{font-size:clamp(26px,4vw,42px)}
+.access p{max-width:56ch;margin:14px 0 24px;color:var(--dim)}
 
 /* trailer */
 .trailer{padding-top:clamp(48px,7vw,88px)}
@@ -145,8 +151,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
     <p class="lede"><span data-l="en">A lo-fi player where every album is a living pixel place.</span><span data-l="uk">Lo-fi плеєр, де кожен альбом — живе піксельне місце.</span></p>
     <p class="facts"><span data-l="en">Nine places, 72 songs. No ads, no internet.</span><span data-l="uk">Дев'ять місць, 72 пісні. Без реклами й без інтернету.</span></p>
     <div class="cta">
-      <button class="play" type="button" disabled aria-disabled="true" aria-describedby="soon"><i></i><span data-l="en">Get it on Google Play</span><span data-l="uk">Завантажити з Google Play</span></button>
-      <p class="soon" id="soon"><span data-l="en">Coming soon: not published yet.</span><span data-l="uk">Скоро буде опубліковано.</span></p>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.shadovvdev.thecityneversleeps" target="_blank" rel="noopener" aria-describedby="soon"><i></i><span data-l="en">Get it on Google Play</span><span data-l="uk">Завантажити з Google Play</span></a>
+      <p class="soon" id="soon"><span data-l="en">Closed testing: access by invitation. <a href="#access">Request access</a></span><span data-l="uk">Закрите тестування: доступ за запрошенням. <a href="#access">Запросити доступ</a></span></p>
     </div>
   </div>
 
@@ -207,6 +213,11 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
   <h2 id="h-albums"><span data-l="en">Nine places, eight songs each</span><span data-l="uk">Дев'ять місць, у кожному вісім пісень</span></h2>
   <ul id="albums"></ul>
 </section>
+<section class="wrap access" id="access" aria-labelledby="h-access">
+  <h2 id="h-access"><span data-l="en">Closed testing</span><span data-l="uk">Закрите тестування</span></h2>
+  <p><span data-l="en">The City Never Sleeps is currently in closed testing on Google Play. To join, email us the Gmail address you use in Google Play and we will add you to the testers.</span><span data-l="uk">«Місто не спить» зараз у закритому тестуванні в Google Play. Щоб долучитися, напишіть нам зі своєю адресою Gmail, і ми додамо вас до тестувальників.</span></p>
+  <a class="play" id="access-btn" href="mailto:mrvnalexandr@gmail.com"><i></i><span data-l="en">Request access</span><span data-l="uk">Запросити доступ</span></a>
+</section>
 </main>
 
 <footer>
@@ -255,9 +266,10 @@ var PLACES=[
 /* ---------- language ---------- */
 (function(){
   var h=document.documentElement,b=document.querySelectorAll('.lang button');
+  function accessLink(l){var a=document.getElementById('access-btn');if(!a)return;var s=l==='uk'?'Місто не спить: запит доступу до закритого тестування':'The City Never Sleeps: closed testing access request',b=l==='uk'?'Доброго дня! Прошу надати доступ до закритого тестування Місто не спить.\n\nАдреса Gmail, яку я використовую в Google Play: ':'Hello! I would like to request access to the closed test of The City Never Sleeps.\n\nThe Gmail address I use in Google Play: ';a.href='mailto:mrvnalexandr@gmail.com?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(b)}
   function set(l){h.lang=l;document.title=l==='uk'?'Місто не спить':'The City Never Sleeps';
     for(var i=0;i<b.length;i++)b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');
-    try{localStorage.setItem('lang',l)}catch(e){}}
+    try{localStorage.setItem('lang',l)}catch(e){}accessLink(l)}
   for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){set(this.getAttribute('data-set'))});
   var q=/[?&]lang=(en|uk)/.exec(location.search),s=null;try{s=localStorage.getItem('lang')}catch(e){}
   set(q?q[1]:(s==='uk'||s==='en'?s:'en'));
